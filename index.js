@@ -110,6 +110,11 @@ app.get('/transactions',async (req,res)=>{
     res.status(200).send(transactions)
 })
 
+app.get('/transaction/:id',async (req,res)=>{
+    const {id}=req.params;
+    const transaction = await Transaction.findOne({_id:id});
+    res.status(200).send(transaction)
+})
 
 
 //  CRUD
